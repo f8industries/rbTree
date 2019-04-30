@@ -6,28 +6,36 @@
 
 int main()
 {
-    Node *tree;
+    Node *tree = NULL;
     char inputC = 0;
-    while(inputC!= 'q')
-    {	
-	printf("\n\nChoose an option: node(a)dd, (r)emove, dump(l)istOfNodes or (q)uit \n"); 
-	scanf(" %c", &inputC);
-	switch(inputC)
-	{
-	    case 'a':
-		printf("adding\n");
-		break;
+    int n = 0;
 
-	    case 'r':
-		printf("removing\n");
-		break;
-	
-	    case 'l':
-		printf("listing\n");
-		break;
-	    default:
-		printf("choose another");
-	}
+    while(inputC!= 'q')
+    {
+    printf("\n\nChoose an option: node(a)dd, (r)emove tree, (l)istOfNodes or (q)uit \n");
+    scanf(" %c", &inputC);
+    switch(inputC)
+    {
+    case 'a':
+        printf("Adding. Enter value\n");
+        scanf("%d",&n); getchar(); fflush(stdin);
+        insertValue(&tree, n, NULL);
+        break;
+
+    case 'r':
+        printf("Remove all\n");
+        removeNodes(&tree);
+        break;
+
+    case 'l':
+        printf("listing\n");
+        listNodes(tree);
+        break;
+
+    default:
+        printf("choose another");
+    }
     }
   return 0;
 }
+
